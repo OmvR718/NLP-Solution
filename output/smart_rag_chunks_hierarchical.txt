@@ -1,0 +1,930 @@
+SMART RAG HIERARCHICAL CHUNKS
+================================================================================
+Model Context Window: 4096 tokens
+Target Context Usage: 70%
+Structure: Section → Parent Chunks → Child Chunks
+================================================================================
+
+################################################################################
+# SECTION: SECTION_47
+# Original: 11,445 chars
+# Parents: 12, Children: 43
+################################################################################
+
+📦 PARENT CHUNK: section_47_P1
+   Tokens: ~251, Children: 3
+   Hash: 7a6ef738
+   ------------------------------------------------------------
+   Overall QoS concept
+4.7.1 PDN (Packet Data Network (internet)) connectivity service
+The Evolved Packet System provides connectivity between a UE (User Equipment (mobile device)) and a PLMN external pa...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P1_C1
+      Tokens: ~66, Hash: 7a6ef738
+      ----------------------------------------
+      Overall QoS concept
+4.7.1 PDN (Packet Data Network (internet)) connectivity service
+The Evolved Packet System provides connectivity between a UE (User Equipment (mobile device)) and a PLMN external packet data network. This is
+referred to as PDN Connectivity Service.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P1_C2
+      Tokens: ~94, Hash: 7a6ef738
+      ----------------------------------------
+      . This is
+referred to as PDN Connectivity Service. The IP PDN Connectivity Service supports the transport of traffic flow aggregate(s), consisting of one or more Service
+Data Flows (SDFs). NOTE: The concept of SDF is defined in the context of PCC (Policy And Charging Control), TS 23.203 [6], and is not explicitly visible in the
+NAS (Non-Access Stratum (signaling)) signalling.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P1_C3
+      Tokens: ~115, Hash: 7a6ef738
+      ----------------------------------------
+      e
+NAS (Non-Access Stratum (signaling)) signalling. A PDN connection to an SCEF has the following characteristics:
+- It is only supported for WB-EUTRA (Evolved Universal Terrestrial Radio Access), LTE-M and NB-IoT (Internet of Things) RAT types;
+- It applies only when Control Plane CIoT EPS (Evolved Packet System (LTE core)) Optimisation are applicable;
+- It does not support the transport of traffic flow aggregate(s);
+- It does not support Emergency Services.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P2
+   Tokens: ~284, Children: 4
+   Hash: 4052ee15
+   ------------------------------------------------------------
+   gate(s);
+- It does not support Emergency Services. The EPS bearer
+The EPS bearer in general
+For E-UTRAN access to the EPC (Evolved Packet Core) the PDN connectivity service is provided by an EPS beare...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P2_C1
+      Tokens: ~86, Hash: 4052ee15
+      ----------------------------------------
+      gate(s);
+- It does not support Emergency Services. The EPS bearer
+The EPS bearer in general
+For E-UTRAN access to the EPC (Evolved Packet Core) the PDN connectivity service is provided by an EPS bearer for GTP-based S5/S8, and
+if IP is in use, by an EPS bearer concatenated with IP connectivity between Serving GW and PDN GW for PMIP-based
+S5/S8.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P2_C2
+      Tokens: ~100, Hash: 4052ee15
+      ----------------------------------------
+      etween Serving GW and PDN GW for PMIP-based
+S5/S8. In this release of the specifications, dedicated bearers are only supported for the IP PDN Connectivity Service. When User Plane (S1-U) is used for data traffic, then an EPS bearer uniquely identifies traffic flows that receive a
+common QoS treatment between a UE and a PDN GW for GTP-based S5/S8, and between UE and Serving GW for
+PMIP-based S5/S8.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P2_C3
+      Tokens: ~85, Hash: 4052ee15
+      ----------------------------------------
+      nd between UE and Serving GW for
+PMIP-based S5/S8. The packet filters signalled in the NAS procedures are associated with a unique packet filter
+identifier on per-PDN connection basis. NOTE 1: The EPS Bearer Identity together with the packet filter identifier is used to reference which packet filter
+the UE intends to modify or delete, i.e.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P2_C4
+      Tokens: ~50, Hash: 4052ee15
+      ----------------------------------------
+      et filter
+the UE intends to modify or delete, i.e. it is used to implement the unique packet filter identifier. An EPS bearer is the level of granularity for bearer level QoS control in the EPC/E-UTRAN.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P3
+   Tokens: ~295, Children: 4
+   Hash: 313d3408
+   ------------------------------------------------------------
+   y for bearer level QoS control in the EPC/E-UTRAN. That is, all traffic mapped
+to the same EPS bearer receive the same bearer level packet forwarding treatment (e.g. scheduling policy, queue
+managemen...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P3_C1
+      Tokens: ~92, Hash: 313d3408
+      ----------------------------------------
+      y for bearer level QoS control in the EPC/E-UTRAN. That is, all traffic mapped
+to the same EPS bearer receive the same bearer level packet forwarding treatment (e.g. scheduling policy, queue
+management policy, rate shaping policy, RLC (Radio Link Control) configuration, etc.). Providing different bearer level packet forwarding
+treatment requires separate EPS bearers.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P3_C2
+      Tokens: ~67, Hash: 313d3408
+      ----------------------------------------
+      orwarding
+treatment requires separate EPS bearers. NOTE 2: In addition but independent to bearer level QoS control, the PCC framework allows an optional
+enforcement of service level QoS control on the granularity of SDFs independent of the mapping of SDFs
+to EPS bearers.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P3_C3
+      Tokens: ~74, Hash: 313d3408
+      ----------------------------------------
+      independent of the mapping of SDFs
+to EPS bearers. One EPS bearer is established when the UE connects to a PDN, and that remains established throughout the lifetime of
+the PDN connection to provide the UE with always-on IP connectivity to that PDN. That bearer is referred to as the
+default bearer.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P3_C4
+      Tokens: ~97, Hash: 313d3408
+      ----------------------------------------
+      That bearer is referred to as the
+default bearer. Any additional EPS bearer that is established for the same PDN connection is referred to as a dedicated
+bearer. The EPS bearer traffic flow template (TFT (Traffic Flow Template)) is the set of all packet filters associated with that EPS bearer. An UpLink
+Traffic Flow Template (UL (Up Link) TFT) is the set of uplink packet filters in a TFT.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P4
+   Tokens: ~267, Children: 4
+   Hash: 100c9cfd
+   ------------------------------------------------------------
+   TFT) is the set of uplink packet filters in a TFT. A DownLink Traffic Flow Template (DL
+TFT) is the set of downlink packet filters in a TFT. Every dedicated EPS bearer is associated with a TFT. A TFT ...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P4_C1
+      Tokens: ~83, Hash: 100c9cfd
+      ----------------------------------------
+      TFT) is the set of uplink packet filters in a TFT. A DownLink Traffic Flow Template (DL
+TFT) is the set of downlink packet filters in a TFT. Every dedicated EPS bearer is associated with a TFT. A TFT may
+be also assigned to the default EPS bearer. The UE uses the UL TFT for mapping traffic to an EPS bearer in the uplink
+direction.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P4_C2
+      Tokens: ~91, Hash: 100c9cfd
+      ----------------------------------------
+      traffic to an EPS bearer in the uplink
+direction. The PCEF (for GTP-based S5/S8) or the BBERF (for PMIP-based S5/S8) uses the DL TFT for mapping
+traffic to an EPS bearer in the downlink direction. The UE may use the UL TFT and DL TFT to associate EPS Bearer
+Activation or Modification procedures to an application and to traffic flow aggregates of the application.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P4_C3
+      Tokens: ~76, Hash: 100c9cfd
+      ----------------------------------------
+      and to traffic flow aggregates of the application. Therefore the
+PDN GW shall, in the Create Dedicated Bearer Request and the Update Bearer Request messages, provide all available
+traffic flow description information (e.g. source and destination IP address and port numbers and the protocol
+information).
+      ----------------------------------------
+
+   📄 CHILD: section_47_P4_C4
+      Tokens: ~54, Hash: 100c9cfd
+      ----------------------------------------
+      ss and port numbers and the protocol
+information). For the UE, the evaluation precedence order of the packet filters making up the UL TFTs is signalled from the P-GW to
+the UE as part of any appropriate TFT operations.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P5
+   Tokens: ~258, Children: 4
+   Hash: 0b7f1401
+   ------------------------------------------------------------
+   the UE as part of any appropriate TFT operations. NOTE 3: The evaluation precedence index of the packet filters associated with the default bearer, in relation to
+those associated with the dedicated b...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P5_C1
+      Tokens: ~60, Hash: 0b7f1401
+      ----------------------------------------
+      the UE as part of any appropriate TFT operations. NOTE 3: The evaluation precedence index of the packet filters associated with the default bearer, in relation to
+those associated with the dedicated bearers, is up to operator configuration.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P5_C2
+      Tokens: ~71, Hash: 0b7f1401
+      ----------------------------------------
+      edicated bearers, is up to operator configuration. It is possible to "force"
+certain traffic onto the default bearer by setting the evaluation precedence index of the corresponding
+filters to a value that is lower than the values used for filters associated with the dedicated bearers.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P5_C3
+      Tokens: ~119, Hash: 0b7f1401
+      ----------------------------------------
+      for filters associated with the dedicated bearers. A TFT of an uplink unidirectional EPS bearer is only associated with UL packet filter(s) that matches the uplink
+unidirectional traffic flow(s) A TFT of a downlink unidirectional EPS bearer is associated with DL packet filter(s) that
+matches the unidirectional traffic flow(s) and a UL packet filter that effectively disallows any useful packet flows (see
+clause 15.3.3.4 in TS 23.060 [7] for an example of such packet filter.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P5_C4
+      Tokens: ~45, Hash: 0b7f1401
+      ----------------------------------------
+      S 23.060 [7] for an example of such packet filter. The UE routes uplink packets to the different EPS bearers based on uplink packet filters in the TFTs assigned to these
+EPS bearers.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P6
+   Tokens: ~291, Children: 4
+   Hash: 52a827e3
+   ------------------------------------------------------------
+   filters in the TFTs assigned to these
+EPS bearers. The UE evaluates for a match, first the uplink packet filter amongst all TFTs that has the lowest evaluation
+precedence index and, if no match is fou...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P6_C1
+      Tokens: ~78, Hash: 52a827e3
+      ----------------------------------------
+      filters in the TFTs assigned to these
+EPS bearers. The UE evaluates for a match, first the uplink packet filter amongst all TFTs that has the lowest evaluation
+precedence index and, if no match is found, proceeds with the evaluation of uplink packet filters in increasing order of
+their evaluation precedence index.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P6_C2
+      Tokens: ~75, Hash: 52a827e3
+      ----------------------------------------
+      easing order of
+their evaluation precedence index. This procedure shall be executed until a match is found or all uplink packet filters
+have been evaluated. If a match is found, the uplink data packet is transmitted on the EPS bearer that is associated with
+the TFT of the matching uplink packet filter.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P6_C3
+      Tokens: ~86, Hash: 52a827e3
+      ----------------------------------------
+      with
+the TFT of the matching uplink packet filter. If no match is found, the uplink data packet shall be sent via the EPS
+bearer that has not been assigned any uplink packet filter. If all EPS bearers (including the default EPS bearer for that
+PDN) have been assigned one or more uplink packet filters, the UE shall discard the uplink data packet.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P6_C4
+      Tokens: ~87, Hash: 52a827e3
+      ----------------------------------------
+      ters, the UE shall discard the uplink data packet. NOTE 4: The above algorithm implies that there is at most one EPS bearer without any uplink packet filter. Therefore, some UEs may expect that during the lifetime of a PDN connection (where only network has
+provided TFT packet filters) at most one EPS bearer exists without any uplink packet filter.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P7
+   Tokens: ~265, Children: 4
+   Hash: 271ab646
+   ------------------------------------------------------------
+   PS bearer exists without any uplink packet filter. To ensure that at most one EPS bearer exists without any uplink packet filter, the PCEF (for GTP-based S5/S8) or the
+BBERF (for PMIP-based S5/S8) mai...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P7_C1
+      Tokens: ~12, Hash: 271ab646
+      ----------------------------------------
+      PS bearer exists without any uplink packet filter.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P7_C2
+      Tokens: ~132, Hash: 271ab646
+      ----------------------------------------
+      PS bearer exists without any uplink packet filter. To ensure that at most one EPS bearer exists without any uplink packet filter, the PCEF (for GTP-based S5/S8) or the
+BBERF (for PMIP-based S5/S8) maintains a valid state for the TFT settings of the PDN connection as defined in
+clause 15.3.0 of TS 23.060 [7] and if necessary, adds a packet filter which effectively disallows any useful packet flows
+in uplink direction (see clause 15.3.3.4 in TS 23.060 [7] for an example of such a packet filter) to the TFT of a
+dedicated bearer.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P7_C3
+      Tokens: ~69, Hash: 271ab646
+      ----------------------------------------
+      a packet filter) to the TFT of a
+dedicated bearer. NOTE 5: The default bearer is the only bearer that may be without any uplink packet filter and thus, a packet filter
+which effectively disallows any useful packet flows in uplink direction will not be added by the
+PCEF/BBERF.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P7_C4
+      Tokens: ~88, Hash: 271ab646
+      ----------------------------------------
+      ink direction will not be added by the
+PCEF/BBERF. The initial bearer level QoS parameter values of the default bearer are assigned by the network, based on subscription
+data (in E-UTRAN the MME (Mobility Management Entity (core network)) sets those initial values based on subscription data retrieved from HSS (Home Subscriber Server (user database))).
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P8
+   Tokens: ~200, Children: 4
+   Hash: c1fdaa54
+   ------------------------------------------------------------
+   rom HSS (Home Subscriber Server (user database))). In a non-roaming scenario, the PCEF may change the QoS parameter value received from the MME based on
+interaction with the PCRF (Policy and Charging ...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P8_C1
+      Tokens: ~62, Hash: c1fdaa54
+      ----------------------------------------
+      rom HSS (Home Subscriber Server (user database))). In a non-roaming scenario, the PCEF may change the QoS parameter value received from the MME based on
+interaction with the PCRF (Policy and Charging Rules Function) or based on local configuration.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P8_C2
+      Tokens: ~59, Hash: c1fdaa54
+      ----------------------------------------
+      g Rules Function) or based on local configuration. When the PCEF changes those values, the MME shall use
+the bearer level QoS parameter values received on the S11 reference point during establishment or modification of the
+default bearer.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P8_C3
+      Tokens: ~80, Hash: c1fdaa54
+      ----------------------------------------
+      tablishment or modification of the
+default bearer. In a roaming scenario, based on local configuration, the MME may downgrade the ARP or APN (Access Point Name (network gateway))-AMBR and/or remap
+QCI (QoS Class Identifier (service quality)) parameter values received from HSS to the value locally configured in MME (e.g.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P8_C4
+      Tokens: ~35, Hash: c1fdaa54
+      ----------------------------------------
+      m HSS to the value locally configured in MME (e.g. when the values received from
+HSS do not comply with services provided by the visited PLMN).
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P9
+   Tokens: ~208, Children: 3
+   Hash: 2191a5c8
+   ------------------------------------------------------------
+   omply with services provided by the visited PLMN). The PCEF may change the QoS parameter values
+An EPS bearer is realized by the following elements:
+- In the UE, the UL TFT maps a traffic flow aggrega...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P9_C1
+      Tokens: ~12, Hash: 2191a5c8
+      ----------------------------------------
+      omply with services provided by the visited PLMN).
+      ----------------------------------------
+
+   📄 CHILD: section_47_P9_C2
+      Tokens: ~122, Hash: 2191a5c8
+      ----------------------------------------
+      omply with services provided by the visited PLMN). The PCEF may change the QoS parameter values
+An EPS bearer is realized by the following elements:
+- In the UE, the UL TFT maps a traffic flow aggregate to an EPS bearer in the uplink direction;
+- In the PDN GW, the DL TFT maps a traffic flow aggregate to an EPS bearer in the downlink direction;
+- A radio bearer (defined in TS 36.300 [5]) transports the packets of an EPS bearer between a UE and an eNodeB (Evolved Node B (base station)).
+      ----------------------------------------
+
+   📄 CHILD: section_47_P9_C3
+      Tokens: ~97, Hash: 2191a5c8
+      ----------------------------------------
+      UE and an eNodeB (Evolved Node B (base station)). If a radio bearer exists, there is a one-to-one mapping between an EPS bearer and this radio bearer;
+- An S1 bearer transports the packets of an EPS bearer between an eNodeB and a Serving GW;
+- An E-RAB (E-UTRAN Radio Access Bearer) refers to the concatenation of an S1 bearer and the corresponding
+radio bearer, as defined in TS 36.300 [5].
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P10
+   Tokens: ~249, Children: 3
+   Hash: 79bc9d64
+   ------------------------------------------------------------
+   ponding
+radio bearer, as defined in TS 36.300 [5]. - An S5/S8 bearer transports the packets of an EPS bearer between a Serving GW and a PDN GW;
+- A UE stores a mapping between an uplink packet filter ...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P10_C1
+      Tokens: ~12, Hash: 79bc9d64
+      ----------------------------------------
+      ponding
+radio bearer, as defined in TS 36.300 [5].
+      ----------------------------------------
+
+   📄 CHILD: section_47_P10_C2
+      Tokens: ~208, Hash: 79bc9d64
+      ----------------------------------------
+      ponding
+radio bearer, as defined in TS 36.300 [5]. - An S5/S8 bearer transports the packets of an EPS bearer between a Serving GW and a PDN GW;
+- A UE stores a mapping between an uplink packet filter and a radio bearer to create the mapping between a traffic
+flow aggregate and a radio bearer in the uplink;
+- A PDN GW stores a mapping between a downlink packet filter and an S5/S8 bearer to create the mapping
+between a traffic flow aggregate and an S5/S8 bearer in the downlink;
+- An eNodeB stores a one-to-one mapping between a radio bearer and an S1 Bearer to create the mapping between
+a radio bearer and an S1 bearer in both the uplink and downlink;
+- A Serving GW stores a one-to-one mapping between an S1 Bearer and an S5/S8 bearer to create the mapping
+between an S1 bearer and an S5/S8 bearer in both the uplink and downlink.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P10_C3
+      Tokens: ~53, Hash: 79bc9d64
+      ----------------------------------------
+      d an S5/S8 bearer in both the uplink and downlink. The PDN GW routes downlink packets to the different EPS bearers based on the downlink packet filters in the TFTs
+assigned to the EPS bearers in the PDN connection.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P11
+   Tokens: ~261, Children: 4
+   Hash: 37cc25ec
+   ------------------------------------------------------------
+   assigned to the EPS bearers in the PDN connection. Upon reception of a downlink data packet, the PDN GW evaluates
+for a match, first the downlink packet filter that has the lowest evaluation precedenc...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P11_C1
+      Tokens: ~87, Hash: 37cc25ec
+      ----------------------------------------
+      assigned to the EPS bearers in the PDN connection. Upon reception of a downlink data packet, the PDN GW evaluates
+for a match, first the downlink packet filter that has the lowest evaluation precedence index and, if no match is found,
+proceeds with the evaluation of downlink packet filters in increasing order of their evaluation precedence index.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P11_C2
+      Tokens: ~96, Hash: 37cc25ec
+      ----------------------------------------
+      easing order of their evaluation precedence index. This
+procedure shall be executed until a match is found, in which case the downlink data packet is tunnelled to the Serving
+GW on the EPS bearer that is associated with the TFT of the matching downlink packet filter. If no match is found, the
+downlink data packet shall be sent via the EPS bearer that does not have any TFT assigned.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P11_C3
+      Tokens: ~73, Hash: 37cc25ec
+      ----------------------------------------
+      he EPS bearer that does not have any TFT assigned. If all EPS bearers
+(including the default EPS bearer for that PDN) have been assigned a TFT, the PDN GW shall discard the downlink
+data packet
+The EPS bearer QoS profile includes the parameters QCI, ARP, GBR and MBR, described in this clause.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P11_C4
+      Tokens: ~42, Hash: 37cc25ec
+      ----------------------------------------
+      s QCI, ARP, GBR and MBR, described in this clause. This clause
+also describes QoS parameters which are applied to an aggregated set of EPS Bearers: APN-AMBR and UE-AMBR.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_47_P12
+   Tokens: ~166, Children: 2
+   Hash: 23ffe066
+   ------------------------------------------------------------
+   gregated set of EPS Bearers: APN-AMBR and UE-AMBR. Each EPS bearer (GBR and Non-GBR) is associated with the following bearer level QoS parameters:
+- QoS Class Identifier (QCI);
+- Allocation and Retent...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_47_P12_C1
+      Tokens: ~90, Hash: 23ffe066
+      ----------------------------------------
+      gregated set of EPS Bearers: APN-AMBR and UE-AMBR. Each EPS bearer (GBR and Non-GBR) is associated with the following bearer level QoS parameters:
+- QoS Class Identifier (QCI);
+- Allocation and Retention Priority (ARP). A QCI is a scalar that is used as a reference to access node-specific parameters that control bearer level packet
+forwarding treatment (e.g.
+      ----------------------------------------
+
+   📄 CHILD: section_47_P12_C2
+      Tokens: ~88, Hash: 23ffe066
+      ----------------------------------------
+      rol bearer level packet
+forwarding treatment (e.g. scheduling weights, admission thresholds, queue management thresholds, link layer protocol
+configuration, etc.), and that have been pre-configured by the operator owning the access node (e.g. eNodeB). A one-toone mapping of standardized QCI values to standardized characteristics is captured in TS 23.203
+      ----------------------------------------
+
+================================================================================
+
+################################################################################
+# SECTION: SECTION_53
+# Original: 11,085 chars
+# Parents: 11, Children: 40
+################################################################################
+
+📦 PARENT CHUNK: section_53_P1
+   Tokens: ~269, Children: 4
+   Hash: 53a89cf5
+   ------------------------------------------------------------
+   Initial Attachment LTE E-UTRAN
+A UE (User Equipment (mobile device))/user needs to register with the network to receive services that require registration. This registration is described
+as Network At...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P1_C1
+      Tokens: ~94, Hash: 53a89cf5
+      ----------------------------------------
+      Initial Attachment LTE E-UTRAN
+A UE (User Equipment (mobile device))/user needs to register with the network to receive services that require registration. This registration is described
+as Network Attachment. The always-on IP connectivity for UE/users of the EPS (Evolved Packet System (LTE core)) may be enabled by establishing a
+default EPS bearer during Network Attachment.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P1_C2
+      Tokens: ~97, Hash: 53a89cf5
+      ----------------------------------------
+      ng a
+default EPS bearer during Network Attachment. The PCC (Policy And Charging Control) rules applied to the default EPS bearer may be predefined in
+the PDN (Packet Data Network (internet)) GW and activated in the attachment by the PDN GW itself. The Attach procedure may trigger one or multiple
+Dedicated Bearer Establishment procedures to establish dedicated EPS bearer(s) for that UE.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P1_C3
+      Tokens: ~77, Hash: 53a89cf5
+      ----------------------------------------
+      to establish dedicated EPS bearer(s) for that UE. During the attach
+procedure, the UE may request for an IP address allocation. Terminals utilising only IETF based mechanisms for IP
+address allocation are also supported. During the Initial Attach procedure the Mobile Equipment Identity is obtained from the UE.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P1_C4
+      Tokens: ~37, Hash: 53a89cf5
+      ----------------------------------------
+      Mobile Equipment Identity is obtained from the UE. The MME (Mobility Management Entity (core network)) operator may
+check the ME Identity with an EIR.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P2
+   Tokens: ~220, Children: 4
+   Hash: 630b9748
+   ------------------------------------------------------------
+   )) operator may
+check the ME Identity with an EIR. The MME passes the ME Identity (IMEISV) to the HSS (Home Subscriber Server (user database)) and to the PDN GW
+During the Initial Attach procedure, if...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P2_C1
+      Tokens: ~87, Hash: 630b9748
+      ----------------------------------------
+      )) operator may
+check the ME Identity with an EIR. The MME passes the ME Identity (IMEISV) to the HSS (Home Subscriber Server (user database)) and to the PDN GW
+During the Initial Attach procedure, if the MME supports SRVCC , the MME informs the HSS with the UE SRVCC capability e.g. for further IMS (IP Multimedia Subsystem (services))
+registration.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P2_C2
+      Tokens: ~53, Hash: 630b9748
+      ----------------------------------------
+      (IP Multimedia Subsystem (services))
+registration. The E-UTRAN Initial Attach procedure is used for Emergency Attach by UEs that need to perform emergency services
+but cannot gain normal services from the network.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P2_C3
+      Tokens: ~95, Hash: 630b9748
+      ----------------------------------------
+      but cannot gain normal services from the network. These UEs are in limited service state Also UEs that had attached for normal services and do not have emergency bearers established and are camped on a cell
+in limited service state (e.g. restricted Tracking Area or not allowed CSG) shall initiate the Attach procedures indicating
+that the attach is to receive emergency services.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P2_C4
+      Tokens: ~22, Hash: 630b9748
+      ----------------------------------------
+      that the attach is to receive emergency services. UEs that camp normally on a cell, i.e.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P3
+   Tokens: ~265, Children: 4
+   Hash: a4fd64af
+   ------------------------------------------------------------
+   y services. UEs that camp normally on a cell, i.e. UEs that are not in limited
+service state, should initiate normal initial attach when not already attached and shall initiate the UE Requested PDN
+Co...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P3_C1
+      Tokens: ~95, Hash: a4fd64af
+      ----------------------------------------
+      y services. UEs that camp normally on a cell, i.e. UEs that are not in limited
+service state, should initiate normal initial attach when not already attached and shall initiate the UE Requested PDN
+Connectivity procedure to receive emergency EPS bearer services
+NOTE 1: A UE that is emergency attached performs initial attach procedure before being able to obtain normal
+services.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P3_C2
+      Tokens: ~37, Hash: a4fd64af
+      ----------------------------------------
+      edure before being able to obtain normal
+services. In order to limit load on the network, only when performing an E-UTRAN Attach with a new PLMN (i.e.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P3_C3
+      Tokens: ~75, Hash: a4fd64af
+      ----------------------------------------
+      performing an E-UTRAN Attach with a new PLMN (i.e. not the
+registered PLMN or an equivalent PLMN of the registered PLMN), a UE configured to perform Attach with IMSI (International Mobile Subscriber Identity) at
+PLMN change shall identify itself by its IMSI instead of any stored temporary identifier.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P3_C4
+      Tokens: ~95, Hash: a4fd64af
+      ----------------------------------------
+      s IMSI instead of any stored temporary identifier. This procedure is also used to establish the first PDN connection over E-UTRAN when the UE already has active PDN
+connections over a non-3GPP access network and wants to establish simultaneous PDN connections to different APNs
+over multiple accesses. A UE, camping on an E-UTRAN cell reads the related System Information Broadcast.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P4
+   Tokens: ~160, Children: 3
+   Hash: b73bc115
+   ------------------------------------------------------------
+   ll reads the related System Information Broadcast. An E-UTRAN cell for a PLMN that supports CIoT enhancements shall broadcast:
+ For the NB-IoT (Internet of Things) case:
+- Whether it can connect to an...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P4_C1
+      Tokens: ~64, Hash: b73bc115
+      ----------------------------------------
+      ll reads the related System Information Broadcast. An E-UTRAN cell for a PLMN that supports CIoT enhancements shall broadcast:
+ For the NB-IoT (Internet of Things) case:
+- Whether it can connect to an MME which supports EPS Attach without PDN Connectivity.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P4_C2
+      Tokens: ~86, Hash: b73bc115
+      ----------------------------------------
+      hich supports EPS Attach without PDN Connectivity. For the WB-E-UTRAN case:
+- Whether it supports Control Plane CIoT EPS Optimisation and it can connect to an MME which supports
+Control Plane CIoT EPS Optimisation. - Whether it supports User Plane CIoT EPS Optimisation and it can connect to an MME which supports User
+Plane CIoT EPS Optimisation.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P4_C3
+      Tokens: ~34, Hash: b73bc115
+      ----------------------------------------
+      E which supports User
+Plane CIoT EPS Optimisation. - Whether it can connect to an MME which supports EPS Attach without PDN Connectivity.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P5
+   Tokens: ~398, Children: 2
+   Hash: efe2e6c1
+   ------------------------------------------------------------
+   hich supports EPS Attach without PDN Connectivity. If the PLMN does not advertise support of EPS attach without PDN connectivity and the UE can only attach
+without PDN connectivity, then the UE shall ...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P5_C1
+      Tokens: ~12, Hash: efe2e6c1
+      ----------------------------------------
+      hich supports EPS Attach without PDN Connectivity.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P5_C2
+      Tokens: ~398, Hash: efe2e6c1
+      ----------------------------------------
+      hich supports EPS Attach without PDN Connectivity. If the PLMN does not advertise support of EPS attach without PDN connectivity and the UE can only attach
+without PDN connectivity, then the UE shall not attach to the PLMN in this cell
+In the case of WB-E-UTRAN, if the PLMN does not support Control Plane CIoT EPS Optimisation, and the UE
+only supports Control Plane CIoT EPS Optimisation and cannot otherwise attach, then the UE shall not proceed
+with the Attach to the PLMN in this cell
+If a Service Gap timer is running in the UE and the Attach Type is not Emergency Attach
+and it is not an Attach without PDN connectivity, then the UE shall not send Attach Requests to this PLMN or
+any other PLMN as long as the timer is running
+If the UE can proceed to attach, it initiates the Attach procedure by the transmission, to the eNodeB (Evolved Node B (base station)), of an Attach
+Request (IMSI or old GUTI (Globally Unique Temporary Identifier), Old GUTI type, last visited TAI (if available), UE Core Network Capability, UE
+Specific DRX parameters, extended idle mode DRX parameters, Attach Type, ESM message container (Request
+Type, PDN Type, Protocol Configuration Options, Ciphered Options Transfer Flag, Header Compression
+Configuration), KSIASME, NAS (Non-Access Stratum (signaling)) sequence number, NAS-MAC, additional GUTI, P-TMSI signature, Voice
+domain preference and UE's usage setting, Preferred Network behaviour, MS Network Capability, Support for
+restriction of use of Enhanced Coverage) message together with RRC parameters indicating the Selected
+Network and the old GUMMEI.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P6
+   Tokens: ~199, Children: 3
+   Hash: aac37716
+   ------------------------------------------------------------
+   ndicating the Selected
+Network and the old GUMMEI. In the RRC connection establishment signalling associated with the Attach Request, the UE indicates its support
+of the CIoT EPS Optimisations, releva...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P6_C1
+      Tokens: ~97, Hash: aac37716
+      ----------------------------------------
+      ndicating the Selected
+Network and the old GUMMEI. In the RRC connection establishment signalling associated with the Attach Request, the UE indicates its support
+of the CIoT EPS Optimisations, relevant for MME selection. If the UE identifies itself with the old GUTI, the UE shall set the Old GUTI Type to indicate whether the Old
+GUTI is a native GUTI or is mapped from a P-TMSI and RAI.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P6_C2
+      Tokens: ~82, Hash: aac37716
+      ----------------------------------------
+      a native GUTI or is mapped from a P-TMSI and RAI. The old GUTI may be derived from a P-TMSI
+and RAI. IMSI shall be included if the UE does not have a valid GUTI or a valid P-TMSI available, or if the UE
+is configured to perform Attach with IMSI at PLMN change and is accessing a new PLMN. The UE stores the
+TIN in detached state.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P6_C3
+      Tokens: ~45, Hash: aac37716
+      ----------------------------------------
+      new PLMN. The UE stores the
+TIN in detached state. If the UE's TIN indicates "GUTI" or "RAT-related TMSI" and the UE holds a valid GUTI
+then the old GUTI indicates this valid GUTI.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P7
+   Tokens: ~282, Children: 4
+   Hash: 0265ec74
+   ------------------------------------------------------------
+   GUTI
+then the old GUTI indicates this valid GUTI. If the UE's TIN indicates "P-TMSI" and the UE holds a valid
+P-TMSI and related RAI then these two elements are indicated as the old GUTI
+The UE sets t...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P7_C1
+      Tokens: ~12, Hash: 0265ec74
+      ----------------------------------------
+      GUTI
+then the old GUTI indicates this valid GUTI.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P7_C2
+      Tokens: ~150, Hash: 0265ec74
+      ----------------------------------------
+      GUTI
+then the old GUTI indicates this valid GUTI. If the UE's TIN indicates "P-TMSI" and the UE holds a valid
+P-TMSI and related RAI then these two elements are indicated as the old GUTI
+The UE sets the voice domain preference and UE's usage setting according to its
+configuration,
+ Alternatively, when a UE only supports E-UTRAN, if the UE has a GUTI available and the UE is accessing the
+same PLMN (or ePLMN), then it identifies itself with the old GUTI and sets the Old GUTI Type to 'native',
+otherwise the UE configuration determines whether the UE identifies itself with its IMSI or the Old GUTI.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P7_C3
+      Tokens: ~80, Hash: 0265ec74
+      ----------------------------------------
+      E identifies itself with its IMSI or the Old GUTI. The UE includes the extended idle mode DRX parameters information element if the UE needs to enable
+extended idle mode DRX. If available, the last visited TAI shall be included in order to help the MME produce a good list of TAIs for any
+subsequent Attach Accept message.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P7_C4
+      Tokens: ~76, Hash: 0265ec74
+      ----------------------------------------
+      of TAIs for any
+subsequent Attach Accept message. Selected Network indicates the PLMN that is selected for network sharing
+purposes. The RRC parameter "old GUMMEI" takes its value from the "old GUTI" contained in the Attach
+Request. UE Network Capability is described in UE capabilities, see clause 5.11.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P8
+   Tokens: ~291, Children: 4
+   Hash: ef23ac89
+   ------------------------------------------------------------
+   is described in UE capabilities, see clause 5.11. If the UE has valid security parameters, the Attach Request message shall be integrity protected by the NASMAC in order to allow validation of the UE ...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P8_C1
+      Tokens: ~95, Hash: ef23ac89
+      ----------------------------------------
+      is described in UE capabilities, see clause 5.11. If the UE has valid security parameters, the Attach Request message shall be integrity protected by the NASMAC in order to allow validation of the UE by the MME. KSIASME, NAS sequence number and NAS-MAC are
+included if the UE has valid EPS security parameters. NAS sequence number indicates the sequential number of
+the NAS message.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P8_C2
+      Tokens: ~97, Hash: ef23ac89
+      ----------------------------------------
+      ndicates the sequential number of
+the NAS message. If the UE does not have a valid EPS security association, then the Attach Request message is
+not integrity protected. In this case the security association is established in step 5a. The UE network capabilities
+indicate also the supported NAS and AS security algorithms. PDN type indicates the requested IP version (IPv4, IPv4/IPv6, IPv6).
+      ----------------------------------------
+
+   📄 CHILD: section_53_P8_C3
+      Tokens: ~73, Hash: ef23ac89
+      ----------------------------------------
+      the requested IP version (IPv4, IPv4/IPv6, IPv6). For a UE that support CIoT EPS
+Optimisations, the PDN type may also be "Non-IP " Protocol Configuration Options (PCO) are used to transfer
+parameters between the UE and the PDN GW, and are sent transparently through the MME and the Serving GW.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P8_C4
+      Tokens: ~62, Hash: ef23ac89
+      ----------------------------------------
+      transparently through the MME and the Serving GW. The Protocol Configuration Options may include the Address Allocation Preference indicating that the UE
+prefers to obtain an IPv4 address only after the default bearer activation by means of DHCPv4.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P9
+   Tokens: ~288, Children: 5
+   Hash: dd4c3b58
+   ------------------------------------------------------------
+   the default bearer activation by means of DHCPv4. If the UE intends
+to send PCO which require ciphering (e.g., PAP/CHAP usernames and passwords) or send an APN (Access Point Name (network gateway)), o...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P9_C1
+      Tokens: ~12, Hash: dd4c3b58
+      ----------------------------------------
+      the default bearer activation by means of DHCPv4.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P9_C2
+      Tokens: ~124, Hash: dd4c3b58
+      ----------------------------------------
+      the default bearer activation by means of DHCPv4. If the UE intends
+to send PCO which require ciphering (e.g., PAP/CHAP usernames and passwords) or send an APN (Access Point Name (network gateway)), or both, the
+UE shall set the Ciphered Options Transfer Flag and send PCO or APN or both only after authentication and
+NAS security setup have been completed
+External network operators wanting to use PAP for authentication are warned that PAP is an obsolete
+protocol from a security point of view.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P9_C3
+      Tokens: ~67, Hash: dd4c3b58
+      ----------------------------------------
+      n obsolete
+protocol from a security point of view. CHAP provides stronger security than PAP. If the UE supports 3GPP PS Data Off, it shall include in the PCO the 3GPP PS Data Off UE Status, which
+indicates whether the user has activated or deactivated 3GPP PS Data Off.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P9_C4
+      Tokens: ~81, Hash: dd4c3b58
+      ----------------------------------------
+      ser has activated or deactivated 3GPP PS Data Off. If the UE has UTRAN or GERAN capabilities, it shall send the NRSU in the PCO to indicate the support of the
+network requested bearer control in UTRAN/GERAN. The UE sends the ETFTU in the PCO to indicate the
+support of the extended TFT (Traffic Flow Template) filter format.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P9_C5
+      Tokens: ~54, Hash: dd4c3b58
+      ----------------------------------------
+      xtended TFT (Traffic Flow Template) filter format. Request Type is included in the ESM message container and indicates
+"Handover" when the UE has already an activated PDN GW/HA due to mobility with non-3GPP accesses.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P10
+   Tokens: ~284, Children: 4
+   Hash: 188cbccf
+   ------------------------------------------------------------
+   PDN GW/HA due to mobility with non-3GPP accesses. If a UE indicates support of CIoT EPS Optimisations in the RRC message, it may omit the ESM message
+container. If the ESM message container is omitted...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P10_C1
+      Tokens: ~85, Hash: 188cbccf
+      ----------------------------------------
+      PDN GW/HA due to mobility with non-3GPP accesses. If a UE indicates support of CIoT EPS Optimisations in the RRC message, it may omit the ESM message
+container. If the ESM message container is omitted the MME shall not establish a PDN connection as part of the
+Attach procedure. In this case steps 6, 12 to 16 and 23 to 26 are not executed.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P10_C2
+      Tokens: ~82, Hash: 188cbccf
+      ----------------------------------------
+      e steps 6, 12 to 16 and 23 to 26 are not executed. In addition, for the case of UEs
+attaching with Control Plane CIoT EPS Optimisation with no user plane establishment, steps 17 to 22 are
+replaced by S1 AP NAS Transport and RRC Direct Transfer messages that just transport the NAS Attach Accept
+and NAS Attach Complete messages.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P10_C3
+      Tokens: ~55, Hash: 188cbccf
+      ----------------------------------------
+      AS Attach Accept
+and NAS Attach Complete messages. Attach Type indicates whether it is an EPS attach or a combined EPS/IMSI attach or an Emergency Attach. Emergency Attach shall not be indicated when the UE is using NB-IoT.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P10_C4
+      Tokens: ~98, Hash: 188cbccf
+      ----------------------------------------
+      hall not be indicated when the UE is using NB-IoT. When using CIoT EPS Optimisations,
+the UE may indicate EPS attach and request SMS by setting the "SMS transfer without Combined Attach" flag
+in the Preferred Network Behaviour IE. If a UE includes a Preferred Network Behaviour, this defines the Network Behaviour the UE is expecting to be
+available in the network as defined in clause 4.3.5.10.
+      ----------------------------------------
+
+📦 PARENT CHUNK: section_53_P11
+   Tokens: ~231, Children: 3
+   Hash: f44415f3
+   ------------------------------------------------------------
+   able in the network as defined in clause 4.3.5.10. If a UE indicated Control Plane CIoT EPS Optimisation supported in Preferred Network Behavior, and the UE
+included the ESM message container, and the...
+   ------------------------------------------------------------
+
+   📄 CHILD: section_53_P11_C1
+      Tokens: ~83, Hash: f44415f3
+      ----------------------------------------
+      able in the network as defined in clause 4.3.5.10. If a UE indicated Control Plane CIoT EPS Optimisation supported in Preferred Network Behavior, and the UE
+included the ESM message container, and the PDN type was IPv4 or IPv6 or IPv4v6, and the UE supports
+header compression, it shall include the Header Compression Configuration.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P11_C2
+      Tokens: ~90, Hash: f44415f3
+      ----------------------------------------
+      hall include the Header Compression Configuration. The Header Compression
+Configuration includes the information necessary for the ROHC channel setup. Optionally, the Header
+Compression Configuration may include additional header compression context setup parameters if the UE
+already has the application traffic information, e.g. the target server IP address.
+      ----------------------------------------
+
+   📄 CHILD: section_53_P11_C3
+      Tokens: ~83, Hash: f44415f3
+      ----------------------------------------
+      ic information, e.g. the target server IP address. For an Emergency Attach the UE shall set both the Attach Type and the Request Type to "Emergency" and the
+IMSI shall be included if the UE does not have a valid GUTI or a valid P-TMSI available. The IMEI shall be
+included when the UE has no IMSI, no valid GUTI and no valid P-TMSI.
+      ----------------------------------------
+
+================================================================================
+

@@ -1,0 +1,115 @@
+Initial Attachment LTE E-UTRAN
+A UE/user needs to register with the network to receive services that require registration. This registration is described
+as Network Attachment. The always-on IP connectivity for UE/users of the EPS may be enabled by establishing a
+default EPS bearer during Network Attachment. The PCC rules applied to the default EPS bearer may be predefined in
+the PDN GW and activated in the attachment by the PDN GW itself. The Attach procedure may trigger one or multiple
+Dedicated Bearer Establishment procedures to establish dedicated EPS bearer(s) for that UE. During the attach
+procedure, the UE may request for an IP address allocation. Terminals utilising only IETF based mechanisms for IP
+address allocation are also supported.
+During the Initial Attach procedure the Mobile Equipment Identity is obtained from the UE. The MME operator may
+check the ME Identity with an EIR. The MME passes the ME Identity (IMEISV) to the HSS and to the PDN GW
+During the Initial Attach procedure, if the MME supports SRVCC , the MME informs the HSS with the UE SRVCC capability e.g. for further IMS
+registration. 
+The E-UTRAN Initial Attach procedure is used for Emergency Attach by UEs that need to perform emergency services
+but cannot gain normal services from the network. These UEs are in limited service state Also UEs that had attached for normal services and do not have emergency bearers established and are camped on a cell
+in limited service state (e.g. restricted Tracking Area or not allowed CSG) shall initiate the Attach procedures indicating
+that the attach is to receive emergency services. UEs that camp normally on a cell, i.e. UEs that are not in limited
+service state, should initiate normal initial attach when not already attached and shall initiate the UE Requested PDN
+Connectivity procedure to receive emergency EPS bearer services
+NOTE 1: A UE that is emergency attached performs initial attach procedure before being able to obtain normal
+services. In order to limit load on the network, only when performing an E-UTRAN Attach with a new PLMN (i.e. not the
+registered PLMN or an equivalent PLMN of the registered PLMN), a UE configured to perform Attach with IMSI at
+PLMN change  shall identify itself by its IMSI instead of any stored temporary identifier. This procedure is also used to establish the first PDN connection over E-UTRAN when the UE already has active PDN
+connections over a non-3GPP access network and wants to establish simultaneous PDN connections to different APNs
+over multiple accesses.
+ A UE, camping on an E-UTRAN cell reads the related System Information Broadcast.
+ An E-UTRAN cell for a PLMN that supports CIoT enhancements shall broadcast:
+ For the NB-IoT case:
+- Whether it can connect to an MME which supports EPS Attach without PDN Connectivity.
+ For the WB-E-UTRAN case:
+- Whether it supports Control Plane CIoT EPS Optimisation and it can connect to an MME which supports
+Control Plane CIoT EPS Optimisation.
+- Whether it supports User Plane CIoT EPS Optimisation and it can connect to an MME which supports User
+Plane CIoT EPS Optimisation.
+- Whether it can connect to an MME which supports EPS Attach without PDN Connectivity.
+ If the PLMN does not advertise support of EPS attach without PDN connectivity and the UE can only attach
+without PDN connectivity, then the UE shall not attach to the PLMN in this cell
+In the case of WB-E-UTRAN, if the PLMN does not support Control Plane CIoT EPS Optimisation, and the UE
+only supports Control Plane CIoT EPS Optimisation and cannot otherwise attach, then the UE shall not proceed
+with the Attach to the PLMN in this cell
+If a Service Gap timer is running in the UE and the Attach Type is not Emergency Attach
+and it is not an Attach without PDN connectivity, then the UE shall not send Attach Requests to this PLMN or
+any other PLMN as long as the timer is running
+If the UE can proceed to attach, it initiates the Attach procedure by the transmission, to the eNodeB, of an Attach
+Request (IMSI or old GUTI, Old GUTI type, last visited TAI (if available), UE Core Network Capability, UE
+Specific DRX parameters, extended idle mode DRX parameters, Attach Type, ESM message container (Request
+Type, PDN Type, Protocol Configuration Options, Ciphered Options Transfer Flag, Header Compression
+Configuration), KSIASME, NAS sequence number, NAS-MAC, additional GUTI, P-TMSI signature, Voice
+domain preference and UE's usage setting, Preferred Network behaviour, MS Network Capability, Support for
+restriction of use of Enhanced Coverage) message together with RRC parameters indicating the Selected
+Network and the old GUMMEI.
+ In the RRC connection establishment signalling associated with the Attach Request, the UE indicates its support
+of the CIoT EPS Optimisations, relevant for MME selection.
+ If the UE identifies itself with the old GUTI, the UE shall set the Old GUTI Type to indicate whether the Old
+GUTI is a native GUTI or is mapped from a P-TMSI and RAI. The old GUTI may be derived from a P-TMSI
+and RAI. IMSI shall be included if the UE does not have a valid GUTI or a valid P-TMSI available, or if the UE
+is configured to perform Attach with IMSI at PLMN change and is accessing a new PLMN. The UE stores the
+TIN in detached state. If the UE's TIN indicates "GUTI" or "RAT-related TMSI" and the UE holds a valid GUTI
+then the old GUTI indicates this valid GUTI. If the UE's TIN indicates "P-TMSI" and the UE holds a valid
+P-TMSI and related RAI then these two elements are indicated as the old GUTI
+The UE sets the voice domain preference and UE's usage setting according to its
+configuration,
+ Alternatively, when a UE only supports E-UTRAN, if the UE has a GUTI available and the UE is accessing the
+same PLMN (or ePLMN), then it identifies itself with the old GUTI and sets the Old GUTI Type to 'native',
+otherwise the UE configuration determines whether the UE identifies itself with its IMSI or the Old GUTI.
+ The UE includes the extended idle mode DRX parameters information element if the UE needs to enable
+extended idle mode DRX.
+ If available, the last visited TAI shall be included in order to help the MME produce a good list of TAIs for any
+subsequent Attach Accept message. Selected Network indicates the PLMN that is selected for network sharing
+purposes. The RRC parameter "old GUMMEI" takes its value from the "old GUTI" contained in the Attach
+Request. UE Network Capability is described in UE capabilities, see clause 5.11.
+ If the UE has valid security parameters, the Attach Request message shall be integrity protected by the NASMAC in order to allow validation of the UE by the MME. KSIASME, NAS sequence number and NAS-MAC are
+included if the UE has valid EPS security parameters. NAS sequence number indicates the sequential number of
+the NAS message. If the UE does not have a valid EPS security association, then the Attach Request message is
+not integrity protected. In this case the security association is established in step 5a. The UE network capabilities
+indicate also the supported NAS and AS security algorithms.
+ PDN type indicates the requested IP version (IPv4, IPv4/IPv6, IPv6). For a UE that support CIoT EPS
+Optimisations, the PDN type may also be "Non-IP " Protocol Configuration Options (PCO) are used to transfer
+parameters between the UE and the PDN GW, and are sent transparently through the MME and the Serving GW.
+The Protocol Configuration Options may include the Address Allocation Preference indicating that the UE
+prefers to obtain an IPv4 address only after the default bearer activation by means of DHCPv4. If the UE intends
+to send PCO which require ciphering (e.g., PAP/CHAP usernames and passwords) or send an APN, or both, the
+UE shall set the Ciphered Options Transfer Flag and send PCO or APN or both only after authentication and
+NAS security setup have been completed
+External network operators wanting to use PAP for authentication are warned that PAP is an obsolete
+protocol from a security point of view. CHAP provides stronger security than PAP.
+ If the UE supports 3GPP PS Data Off, it shall include in the PCO the 3GPP PS Data Off UE Status, which
+indicates whether the user has activated or deactivated 3GPP PS Data Off.
+ If the UE has UTRAN or GERAN capabilities, it shall send the NRSU in the PCO to indicate the support of the
+network requested bearer control in UTRAN/GERAN. The UE sends the ETFTU in the PCO to indicate the
+support of the extended TFT filter format. Request Type is included in the ESM message container and indicates
+"Handover" when the UE has already an activated PDN GW/HA due to mobility with non-3GPP accesses.
+ If a UE indicates support of CIoT EPS Optimisations in the RRC message, it may omit the ESM message
+container. If the ESM message container is omitted the MME shall not establish a PDN connection as part of the
+Attach procedure. In this case steps 6, 12 to 16 and 23 to 26 are not executed. In addition, for the case of UEs
+attaching with Control Plane CIoT EPS Optimisation with no user plane establishment, steps 17 to 22 are
+replaced by S1 AP NAS Transport and RRC Direct Transfer messages that just transport the NAS Attach Accept
+and NAS Attach Complete messages.
+ Attach Type indicates whether it is an EPS attach or a combined EPS/IMSI attach or an Emergency Attach.
+Emergency Attach shall not be indicated when the UE is using NB-IoT. When using CIoT EPS Optimisations,
+the UE may indicate EPS attach and request SMS by setting the "SMS transfer without Combined Attach" flag
+in the Preferred Network Behaviour IE.
+ If a UE includes a Preferred Network Behaviour, this defines the Network Behaviour the UE is expecting to be
+available in the network as defined in clause 4.3.5.10.
+ If a UE indicated Control Plane CIoT EPS Optimisation supported in Preferred Network Behavior, and the UE
+included the ESM message container, and the PDN type was IPv4 or IPv6 or IPv4v6, and the UE supports
+header compression, it shall include the Header Compression Configuration. The Header Compression
+Configuration includes the information necessary for the ROHC channel setup. Optionally, the Header
+Compression Configuration may include additional header compression context setup parameters if the UE
+already has the application traffic information, e.g. the target server IP address.
+ For an Emergency Attach the UE shall set both the Attach Type and the Request Type to "Emergency" and the
+IMSI shall be included if the UE does not have a valid GUTI or a valid P-TMSI available. The IMEI shall be
+included when the UE has no IMSI, no valid GUTI and no valid P-TMSI. 
+
+
+

@@ -1,0 +1,31 @@
+{
+  "chunking_config": {
+    "model_context_window": 4096,
+    "target_context_usage": 0.7,
+    "available_context": 2867
+  },
+  "chunk_statistics": {
+    "total_sections": 2,
+    "parent_chunks": 23,
+    "child_chunks": 83,
+    "total_chunks": 106,
+    "avg_parent_tokens": 255.7391304347826,
+    "avg_child_tokens": 79.62650602409639
+  },
+  "section_breakdown": {
+    "section_47": {
+      "original_chars": 11445,
+      "parent_count": 12,
+      "child_count": 43
+    },
+    "section_53": {
+      "original_chars": 11085,
+      "parent_count": 11,
+      "child_count": 40
+    }
+  },
+  "recommendations": {
+    "chunk_size": "Consider larger child chunks for efficiency",
+    "retrieval": "Simple top-k retrieval should work well"
+  }
+}

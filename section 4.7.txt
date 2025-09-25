@@ -1,0 +1,118 @@
+Overall QoS concept
+4.7.1 PDN connectivity service
+The Evolved Packet System provides connectivity between a UE and a PLMN external packet data network. This is
+referred to as PDN Connectivity Service.
+The IP PDN Connectivity Service supports the transport of traffic flow aggregate(s), consisting of one or more Service
+Data Flows (SDFs).
+NOTE: The concept of SDF is defined in the context of PCC, TS 23.203 [6], and is not explicitly visible in the
+NAS signalling.
+A PDN connection to an SCEF has the following characteristics:
+- It is only supported for WB-EUTRA, LTE-M and NB-IoT RAT types;
+- It applies only when Control Plane CIoT EPS Optimisation are applicable;
+- It does not support the transport of traffic flow aggregate(s);
+- It does not support Emergency Services.
+The EPS bearer
+The EPS bearer in general
+For E-UTRAN access to the EPC the PDN connectivity service is provided by an EPS bearer for GTP-based S5/S8, and
+if IP is in use, by an EPS bearer concatenated with IP connectivity between Serving GW and PDN GW for PMIP-based
+S5/S8.
+In this release of the specifications, dedicated bearers are only supported for the IP PDN Connectivity Service.
+When User Plane (S1-U) is used for data traffic, then an EPS bearer uniquely identifies traffic flows that receive a
+common QoS treatment between a UE and a PDN GW for GTP-based S5/S8, and between UE and Serving GW for
+PMIP-based S5/S8. The packet filters signalled in the NAS procedures are associated with a unique packet filter
+identifier on per-PDN connection basis.
+NOTE 1: The EPS Bearer Identity together with the packet filter identifier is used to reference which packet filter
+the UE intends to modify or delete, i.e. it is used to implement the unique packet filter identifier.
+An EPS bearer is the level of granularity for bearer level QoS control in the EPC/E-UTRAN. That is, all traffic mapped
+to the same EPS bearer receive the same bearer level packet forwarding treatment (e.g. scheduling policy, queue
+management policy, rate shaping policy, RLC configuration, etc.). Providing different bearer level packet forwarding
+treatment requires separate EPS bearers.
+NOTE 2: In addition but independent to bearer level QoS control, the PCC framework allows an optional
+enforcement of service level QoS control on the granularity of SDFs independent of the mapping of SDFs
+to EPS bearers.
+One EPS bearer is established when the UE connects to a PDN, and that remains established throughout the lifetime of
+the PDN connection to provide the UE with always-on IP connectivity to that PDN. That bearer is referred to as the
+default bearer. Any additional EPS bearer that is established for the same PDN connection is referred to as a dedicated
+bearer.
+The EPS bearer traffic flow template (TFT) is the set of all packet filters associated with that EPS bearer. An UpLink
+Traffic Flow Template (UL TFT) is the set of uplink packet filters in a TFT. A DownLink Traffic Flow Template (DL
+TFT) is the set of downlink packet filters in a TFT. Every dedicated EPS bearer is associated with a TFT. A TFT may
+be also assigned to the default EPS bearer. The UE uses the UL TFT for mapping traffic to an EPS bearer in the uplink
+direction. The PCEF (for GTP-based S5/S8) or the BBERF (for PMIP-based S5/S8) uses the DL TFT for mapping
+traffic to an EPS bearer in the downlink direction. The UE may use the UL TFT and DL TFT to associate EPS Bearer
+Activation or Modification procedures to an application and to traffic flow aggregates of the application. Therefore the
+PDN GW shall, in the Create Dedicated Bearer Request and the Update Bearer Request messages, provide all available
+traffic flow description information (e.g. source and destination IP address and port numbers and the protocol
+information).
+For the UE, the evaluation precedence order of the packet filters making up the UL TFTs is signalled from the P-GW to
+the UE as part of any appropriate TFT operations.
+NOTE 3: The evaluation precedence index of the packet filters associated with the default bearer, in relation to
+those associated with the dedicated bearers, is up to operator configuration. It is possible to "force"
+certain traffic onto the default bearer by setting the evaluation precedence index of the corresponding
+filters to a value that is lower than the values used for filters associated with the dedicated bearers.
+A TFT of an uplink unidirectional EPS bearer is only associated with UL packet filter(s) that matches the uplink
+unidirectional traffic flow(s) A TFT of a downlink unidirectional EPS bearer is associated with DL packet filter(s) that
+matches the unidirectional traffic flow(s) and a UL packet filter that effectively disallows any useful packet flows (see
+clause 15.3.3.4 in TS 23.060 [7] for an example of such packet filter.
+The UE routes uplink packets to the different EPS bearers based on uplink packet filters in the TFTs assigned to these
+EPS bearers. The UE evaluates for a match, first the uplink packet filter amongst all TFTs that has the lowest evaluation
+precedence index and, if no match is found, proceeds with the evaluation of uplink packet filters in increasing order of
+their evaluation precedence index. This procedure shall be executed until a match is found or all uplink packet filters
+have been evaluated. If a match is found, the uplink data packet is transmitted on the EPS bearer that is associated with
+the TFT of the matching uplink packet filter. If no match is found, the uplink data packet shall be sent via the EPS
+bearer that has not been assigned any uplink packet filter. If all EPS bearers (including the default EPS bearer for that
+PDN) have been assigned one or more uplink packet filters, the UE shall discard the uplink data packet.
+NOTE 4: The above algorithm implies that there is at most one EPS bearer without any uplink packet filter.
+Therefore, some UEs may expect that during the lifetime of a PDN connection (where only network has
+provided TFT packet filters) at most one EPS bearer exists without any uplink packet filter.
+To ensure that at most one EPS bearer exists without any uplink packet filter, the PCEF (for GTP-based S5/S8) or the
+BBERF (for PMIP-based S5/S8) maintains a valid state for the TFT settings of the PDN connection as defined in
+clause 15.3.0 of TS 23.060 [7] and if necessary, adds a packet filter which effectively disallows any useful packet flows
+in uplink direction (see clause 15.3.3.4 in TS 23.060 [7] for an example of such a packet filter) to the TFT of a
+dedicated bearer.
+NOTE 5: The default bearer is the only bearer that may be without any uplink packet filter and thus, a packet filter
+which effectively disallows any useful packet flows in uplink direction will not be added by the
+PCEF/BBERF.
+The initial bearer level QoS parameter values of the default bearer are assigned by the network, based on subscription
+data (in E-UTRAN the MME sets those initial values based on subscription data retrieved from HSS).
+In a non-roaming scenario, the PCEF may change the QoS parameter value received from the MME based on
+interaction with the PCRF or based on local configuration. When the PCEF changes those values, the MME shall use
+the bearer level QoS parameter values received on the S11 reference point during establishment or modification of the
+default bearer.
+In a roaming scenario, based on local configuration, the MME may downgrade the ARP or APN-AMBR and/or remap
+QCI parameter values received from HSS to the value locally configured in MME (e.g. when the values received from
+HSS do not comply with services provided by the visited PLMN). The PCEF may change the QoS parameter values 
+An EPS bearer is realized by the following elements:
+- In the UE, the UL TFT maps a traffic flow aggregate to an EPS bearer in the uplink direction;
+- In the PDN GW, the DL TFT maps a traffic flow aggregate to an EPS bearer in the downlink direction;
+- A radio bearer (defined in TS 36.300 [5]) transports the packets of an EPS bearer between a UE and an eNodeB.
+If a radio bearer exists, there is a one-to-one mapping between an EPS bearer and this radio bearer;
+- An S1 bearer transports the packets of an EPS bearer between an eNodeB and a Serving GW;
+- An E-RAB (E-UTRAN Radio Access Bearer) refers to the concatenation of an S1 bearer and the corresponding
+radio bearer, as defined in TS 36.300 [5].
+- An S5/S8 bearer transports the packets of an EPS bearer between a Serving GW and a PDN GW;
+- A UE stores a mapping between an uplink packet filter and a radio bearer to create the mapping between a traffic
+flow aggregate and a radio bearer in the uplink;
+- A PDN GW stores a mapping between a downlink packet filter and an S5/S8 bearer to create the mapping
+between a traffic flow aggregate and an S5/S8 bearer in the downlink;
+- An eNodeB stores a one-to-one mapping between a radio bearer and an S1 Bearer to create the mapping between
+a radio bearer and an S1 bearer in both the uplink and downlink;
+- A Serving GW stores a one-to-one mapping between an S1 Bearer and an S5/S8 bearer to create the mapping
+between an S1 bearer and an S5/S8 bearer in both the uplink and downlink.
+The PDN GW routes downlink packets to the different EPS bearers based on the downlink packet filters in the TFTs
+assigned to the EPS bearers in the PDN connection. Upon reception of a downlink data packet, the PDN GW evaluates
+for a match, first the downlink packet filter that has the lowest evaluation precedence index and, if no match is found,
+proceeds with the evaluation of downlink packet filters in increasing order of their evaluation precedence index. This
+procedure shall be executed until a match is found, in which case the downlink data packet is tunnelled to the Serving
+GW on the EPS bearer that is associated with the TFT of the matching downlink packet filter. If no match is found, the
+downlink data packet shall be sent via the EPS bearer that does not have any TFT assigned. If all EPS bearers
+(including the default EPS bearer for that PDN) have been assigned a TFT, the PDN GW shall discard the downlink
+data packet
+The EPS bearer QoS profile includes the parameters QCI, ARP, GBR and MBR, described in this clause. This clause
+also describes QoS parameters which are applied to an aggregated set of EPS Bearers: APN-AMBR and UE-AMBR.
+Each EPS bearer (GBR and Non-GBR) is associated with the following bearer level QoS parameters:
+- QoS Class Identifier (QCI);
+- Allocation and Retention Priority (ARP).
+A QCI is a scalar that is used as a reference to access node-specific parameters that control bearer level packet
+forwarding treatment (e.g. scheduling weights, admission thresholds, queue management thresholds, link layer protocol
+configuration, etc.), and that have been pre-configured by the operator owning the access node (e.g. eNodeB). A one-toone mapping of standardized QCI values to standardized characteristics is captured in TS 23.203
