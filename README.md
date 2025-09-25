@@ -1,6 +1,10 @@
-# Smart RAG Document Chunker (NLP-Solution)
+# NLP-Solution – QoS Engineer LLM with RAG
 
-Transform domain text files into retrieval-optimized hierarchical chunks for RAG systems. This repository includes a production-ready `SmartRAGChunker` that:
+This project’s main entry point is the interactive notebook `QoS_Engineer_LLM.ipynb`, which implements a QoS Engineer assistant powered by RAG. The repository also includes a production-ready `SmartRAGChunker` (`transform.py`) that prepares domain text into retrieval-optimized chunks consumed by the notebook.
+
+Use the notebook for end-to-end RAG (ingest → embed → FAISS → query with LLM). Use `transform.py` when you need to (re)generate chunked data from raw `.txt` sources.
+
+The chunker:
 
 - Creates parent chunks (broader context) and child chunks (retrieval-optimized)
 - Preserves semantic continuity via overlaps and sentence-aware splitting
@@ -22,9 +26,9 @@ The default code and examples are tailored for a QoS Engineer domain, but the ch
 
 ## Repository Structure
 
-- `transform.py` – main implementation with `SmartRAGChunker` and helper entrypoints
+- `QoS_Engineer_LLM.ipynb` – MAIN notebook: builds embeddings (SBERT), FAISS index, and queries an LLM (optionally `llama-cpp` Phi-3)
+- `transform.py` – smart chunker used to generate structured inputs for RAG
 - `output/` – example outputs produced by the chunker
-- `QoS_Engineer_LLM.ipynb` – domain notebook (optional)
 - `section 4.7.txt`, `section 5.3.txt` – example input sections
 - `LICENSE` – project license
 
@@ -37,7 +41,44 @@ The default code and examples are tailored for a QoS Engineer domain, but the ch
 
 ---
 
-## Quick Start (Windows PowerShell)
+## Quick Start – Notebook (Recommended)
+
+You can run the notebook either in Google Colab (easiest) or locally.
+
+### A) Google Colab
+
+1) Upload or mount your structured chunk files into a folder (the notebook uses `/content/drive/MyDrive/RAG`).
+2) Install dependencies inside the notebook:
+
+```python
+!pip install -q faiss-cpu sentence-transformers tqdm
+# Optional for local LLM inference:
+!pip install -q llama-cpp-python
+```
+
+3) Run the cells to:
+- Load `smart_rag_chunks_structured.json` or `smart_rag_chunks_rag_ready.txt`
+- Build SBERT embeddings (`all-MiniLM-L6-v2`) and a FAISS index
+- (Optional) Load Phi-3 Mini via `llama-cpp-python` and run RAG generation
+
+### B) Local Jupyter (Windows PowerShell)
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install jupyter ipykernel sentence-transformers faiss-cpu tqdm
+# Optional for local LLM inference:
+pip install llama-cpp-python
+jupyter notebook
+```
+
+Open `QoS_Engineer_LLM.ipynb`, edit the paths pointing to your chunk files (e.g., `output/smart_rag_chunks_structured.json`), and execute cells.
+
+Note: If `faiss-cpu` wheel is unavailable for your Python/OS combo, install via Conda (`conda install -c conda-forge faiss-cpu`) or run the notebook on Colab.
+
+---
+
+## Quick Start – Chunker (transform.py)
 
 1) Optionally create and activate a virtual environment:
 
@@ -106,6 +147,34 @@ if chunker:
     # Or access hierarchical view per section
     hierarchy = chunker.hierarchical_chunks
 ```
+
+---
+
+## Using the LLM Notebook (`QoS_Engineer_LLM.ipynb`)
+
+This notebook demonstrates how a QoS Engineer assistant can consume the generated chunks in a RAG workflow. It is optional and meant for interactive exploration.
+
+1) Install Jupyter (in your virtual environment):
+
+```powershell
+pip install jupyter ipykernel
+python -m ipykernel install --user --name nlp-solution --display-name "Python (nlp-solution)"
+```
+
+2) Launch Jupyter and open the notebook:
+
+```powershell
+jupyter notebook
+```
+
+3) In the notebook, verify paths to the `output/` files (e.g., `smart_rag_chunks_structured.json`) and configure any required provider/API keys if the notebook uses an external LLM. Commonly this is done via environment variables (e.g., `OPENAI_API_KEY`) or a `.env` file.
+
+4) Run cells to load chunks, build a retriever, and query the LLM with QoS-related prompts.
+
+Notes:
+- The notebook supports three input formats and autodetects: structured JSON, JSONL, or RAG-ready TXT.
+- It builds embeddings with `sentence-transformers/all-MiniLM-L6-v2` and a FAISS index.
+- Optional: download a local GGUF model (e.g., Phi-3 Mini) and run `llama-cpp-python` for CPU-only generation.
 
 ---
 
